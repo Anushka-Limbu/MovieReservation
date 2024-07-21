@@ -67,3 +67,57 @@ body {
 .now-showing {
   padding: 0px 90px;
 }
+
+.flex img {
+  width: 30px;
+}
+footer {
+  border-top: solid 2px rgb(156, 156, 156);
+  margin: 40px 90px;
+  padding: 40px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.send-email {
+  background-color: rgb(66, 59, 59);
+  display: flex;
+  gap: 6px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.send-email input {
+  background: transparent;
+  border: none;
+  color: rgb(231, 214, 214);
+}
+
+.send-email img {
+  height: 22px;
+  width: 22px;
+}
+.list-inline {
+  list-style: none;
+  display: flex;
+}
+
+.footer_new_link {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(156, 156, 156);
+  cursor: pointer;
+}
+.list-inline-item a {
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-right: 8px;
+}
+
+.list-inline-item:not(:last-child) {
+  margin-right: 8px;
+  border-right: 2px solid rgb(156, 156, 156);
+}
