@@ -1,24 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CineReserve</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
 
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </head>
+
+  <body>
     <div>
-        <nav class="nav">
-            <img src="images/ghg.png" alt="CineReserve" height="30px" width="170px">
-            <div>
-                <button class="primary-button">
-                    <p> Sign In </p>
-                </button>
-            </div>
-        </nav>
+      <nav class="nav">
+        <img
+          src="images/ghg.png"
+          alt="CineReserve"
+          height="30px"
+          width="170px"
+        />
+        <div>
+          <button class="primary-button">
+            <p>Sign In</p>
+          </button>
+        </div>
+      </nav>
     </div>
-</body>
+    <div class="slider">
+      <div class="swiper mySwiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <img src="images/Demon-Slayer.png" alt="Demon-Slayer" />
+          </div>
+          <div class="swiper-slide">
+            <img src="images/haikyuu.png" alt="Haikyuu" />
+          </div>
+          <div class="swiper-slide">
+            <img src="images/jjk.jpg" alt="Jujutsu Kaisen" />
+          </div>
+          ...
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
 
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+      </div>
+    </div>
+
+    <script type="module">
+      import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
+      const swiper = new Swiper(".mySwiper", {
+        autoplay: { delay: 5000 },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+  </body>
 </html>
