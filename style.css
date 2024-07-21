@@ -52,3 +52,18 @@ body {
   font-size: 14px;
   padding-bottom: 10px;
 }
+
+.movie-shows img {
+  width: 136px;
+  height: 190px;
+}
+
+.movie-shows {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(max(136px, 9vw), 1fr));
+}
+
+.now-showing {
+  padding: 0px 90px;
+}
