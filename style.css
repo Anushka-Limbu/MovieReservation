@@ -1,0 +1,30 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(66, 59, 59);
+    height: 60px;
+    align-items: center;
+    padding: 0px 90px;
+}
+
+.primary-button {
+    background-color: rgb(62, 150, 252);
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 8px;
+    height: 30px;
+    width: 100px;
+}
+
+.primary-button p {
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    margin: 2px;
+}
