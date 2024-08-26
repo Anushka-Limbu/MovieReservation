@@ -249,8 +249,63 @@
         });
       });
       function booked() {
-        alert("Ticket Booked");
-      }
+        // Get the form elements
+        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+        let isValid = true;
+        
+        // Validate Credit Card details if selected
+        if (paymentMethod === 'creditCard') {
+            const cardNumber = document.getElementById('cardNumber').value.trim();
+            const expiryDate = document.getElementById('expiryDate').value.trim();
+            const cvv = document.getElementById('cvv').value.trim();
+
+            if (cardNumber === '' || expiryDate === '' || cvv === '') {
+                isValid = false;
+                
+            }
+        }
+
+        // Validate Visa Card details if selected
+        if (paymentMethod === 'visaCard') {
+            const visaCardNumber = document.getElementById('visaCardNumber').value.trim();
+            const visaExpiryDate = document.getElementById('visaExpiryDate').value.trim();
+            const visaCvv = document.getElementById('visaCvv').value.trim();
+
+            if (visaCardNumber === '' || visaExpiryDate === '' || visaCvv === '') {
+                isValid = false;
+            }
+        }
+
+        // If the form is valid, show the popup
+        if (isValid) {
+            alert('Booked');
+        }
+
+        // Return false to prevent form submission
+        return false;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const creditCardDetails = document.getElementById('creditCardDetails');
+    const visaCardDetails = document.getElementById('visaCardDetails');
+    
+    const paymentForm = document.getElementById('paymentForm');
+    
+    paymentForm.addEventListener('change', (event) => {
+        if (event.target.name === 'paymentMethod') {
+            if (event.target.value === 'creditCard') {
+                creditCardDetails.classList.remove('hidden');
+                visaCardDetails.classList.add('hidden');
+            } else if (event.target.value === 'visaCard') {
+                creditCardDetails.classList.add('hidden');
+                visaCardDetails.classList.remove('hidden');
+            }
+        }
+    });
+});
+
+
+      
     </script>
   </body>
 </html>
