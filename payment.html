@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Options</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .payment {
+        max-width: 600px;
+        margin-top: 50px;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #333;
+      }
+
+      .payment-option {
+        margin-bottom: 10px;
+      }
+
+      .payment-option input[type="radio"] {
+        margin-right: 10px;
+      }
+
+      .payment-details {
+        margin-top: 20px;
+      }
+
+      .payment-details label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .payment-details input {
+        width: calc(100% - 22px);
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .card-image {
+        width: 150px;
+      }
+
+      .card-info {
+        display: flex;
+        gap: 70px;
+      }
+
+      .desc-block{
+        flex-direction: column;
+        margin: 50px;
+        width: 400px;
+        margin-left: 120px;
+      }
+
+      .movie_info_synopsis{
+        width: 228px;
+      }
+
+      .both{
+        display: flex;
+        gap: auto;
+      }
+     
+    </style>
+  </head>
+  <body>
+    <div>
+      <nav class="nav">
+        <a href="/"
+          ><img
+            src="images/logo.png"
+            alt="CineReserve"
+            height="30px"
+            width="170px"
+        /></a>
+      </nav>
+    </div>
+    <div class="both">
+    <div class="desc-block">
+      <img src="images/jjknow.jpg" alt="jjk" class="movie-poster" />
+      <div class="movie-info">
+        <h6 class="movie_booking_type" style="margin-bottom: 8px">
+          NOW SHOWING
+        </h6>
+        <div class="parent_movie_info_title">
+          <h1 class="movie_info_title" style="margin-bottom: 8px">
+            Jujutsu Kaisen<span>&nbsp;(2024)</span>
+          </h1>
+        </div>
+        <div class="movie_info_new" style="margin-bottom: 8px">
+          <span class="movie_info_language" style="margin-right: 4px">
+            134 mins
+          </span>
+          <span class="movie_info_rating">PG</span>
+        </div>
+        <section class="movie_info_more_details">
+          <p class="movie_info_synopsis movie_info_synopsis_partial">
+              The story follows a high school student Yuji Itadori as he joins a secret organization
+              of Jujutsu Sorcerers to eliminate a powerful Curse named Ryomen Sukuna, of whom Yuji becomes the host.
+          </p>
+      </section>
+      </div>
+    </div>
+      <div class="payment">
+        <h1>Payment Options</h1>
+        <form id="paymentForm">
+          <div class="payment-option">
+            <input
+              type="radio"
+              id="creditCard"
+              name="paymentMethod"
+              value="creditCard"
+              checked
+            />
+            <label for="creditCard">Credit Card</label>
+          </div>
+          <div class="payment-option">
+            <input
+              type="radio"
+              id="visaCard"
+              name="paymentMethod"
+              value="visaCard"
+            />
+            <label for="visaCard">Visa Card</label>
+          </div>
+
+          <div id="creditCardDetails" class="payment-details">
+            <div class="card-info">
+              <h2>Credit Card Details</h2>
+              <img
+                src="images/credit.jpeg"
+                alt="Credit Card"
+                class="card-image"
+              />
+            </div>
+
+            <label for="cardNumber">Card Number:</label>
+            <input
+              type="text"
+              id="cardNumber"
+              name="cardNumber"
+              placeholder="1234 5678 9012 3456"
+              required
+            />
+
+            <label for="expiryDate">Expiry Date:</label>
+            <input
+              type="text"
+              id="expiryDate"
+              name="expiryDate"
+              placeholder="MM/YY"
+              required
+            />
+
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" placeholder="123" required />
+          </div>
+
+          <div id="visaCardDetails" class="payment-details hidden">
+            <div class="card-info">
+              <h2>Visa Card Details</h2>
+              <img src="images/visa.jpg" alt="Credit Card" class="card-image" />
+            </div>
+            <label for="visaCardNumber">Card Number:</label>
+            <input
+              type="text"
+              id="visaCardNumber"
+              name="visaCardNumber"
+              placeholder="1234 5678 9012 3456"
+              required
+            />
+
+            <label for="visaExpiryDate">Expiry Date:</label>
+            <input
+              type="text"
+              id="visaExpiryDate"
+              name="visaExpiryDate"
+              placeholder="MM/YY"
+              required
+            />
+
+            <label for="visaCvv">CVV:</label>
+            <input
+              type="text"
+              id="visaCvv"
+              name="visaCvv"
+              placeholder="123"
+              required
+            />
+          </div>
+
+          <button type="submit" onclick="booked()">Submit Payment</button>
+        </form>
+      </div>
+    </div>
+  </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const creditCardDetails = document.getElementById("creditCardDetails");
+        const visaCardDetails = document.getElementById("visaCardDetails");
+
+        const paymentForm = document.getElementById("paymentForm");
+
+        paymentForm.addEventListener("change", (event) => {
+          if (event.target.name === "paymentMethod") {
+            if (event.target.value === "creditCard") {
+              creditCardDetails.classList.remove("hidden");
+              visaCardDetails.classList.add("hidden");
+            } else if (event.target.value === "visaCard") {
+              creditCardDetails.classList.add("hidden");
+              visaCardDetails.classList.remove("hidden");
+            }
+          }
+        });
+      });
+      function booked() {
+        alert("Ticket Booked");
+      }
+    </script>
+  </body>
+</html>

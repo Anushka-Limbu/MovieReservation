@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Now Showing</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container-seat {
+            /* width: 100%; */
+            text-align: center;
+            border: solid black;
+            padding: 10px;
+        }
+       
+
+        .screen {
+            height: 30px;
+            width: 100%;
+            margin-bottom: 30px;
+            border-radius: 100px 100px 0 0;
+            margin: auto;
+            background-image: linear-gradient(#0aa1ff, #EEE);
+            
+        }
+
+        .seats {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 24px;
+        }
+        .row-seat{
+            display: flex;
+            gap: 50px}
+        .row {
+            display: flex;
+            margin-bottom: 12px;
+            gap: 12px;
+        }
+
+        .row div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .seat {
+            width: 35px;
+            height: 35px;
+            background-color: #1abc9c;
+            margin: 3px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .seat-show{
+            
+            width: 35px;
+            height: 35px;
+            background-color: #1abc9c;
+            margin: 3px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .seat.reserved {
+            background-color: #3498db;
+            cursor: not-allowed;
+        }
+
+        .seat.sold {
+            background-color: #e74c3c;
+            cursor: not-allowed;
+        }
+
+        .seat.selected {
+            background-color: #f1c40f;
+        }
+
+        .legend {
+            margin-top: 20px;
+            display: flex;
+            flex-direction:row;
+            justify-content: center;
+        }
+
+        .legend-item {
+            margin-right: 10px;
+            font-size: 12px;
+            text-align: center;
+            
+        }
+
+        .total {
+            margin-top: 20px;
+        }
+
+        .book{
+            padding: 13px 16px;
+            background-color: rgb(116, 169, 114);
+            color:  rgb(182, 81, 45);
+            font-size: 20px;
+            font-weight: 700;
+            border: 1px solid rgb(182, 81, 45);
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 5px 6px rgb(100, 100, 100);
+        }
+        
+        .book:hover{
+            background-color:  rgb(157, 157, 157);
+            color:  rgb(186, 111, 84);
+        }
+
+        .book:active{
+            box-shadow: none;
+            background-color: rgb(149, 146, 146);
+            color:  rgb(182, 81, 45);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <nav class="nav">
+            <a href="/"
+              ><img
+                src="images/logo.png"
+                alt="CineReserve"
+                height="30px"
+                width="170px"
+            /></a>
+            
+        </nav>
+    </div>
+    <div class="movie-desc">
+        <div class="movie-now-showing-detail">
+            <img src="images/jjknow.jpg" alt="jjk" class="movie-poster">
+            <div class="movie-info">
+                <h6 class="movie_booking_type" style="margin-bottom: 8px;">NOW SHOWING</h6>
+                <div class="parent_movie_info_title">
+                    <h6 class="movie_info_title " style="margin-bottom: 8px;">
+                        Jujutsu Kaisen<span>&nbsp;(2024)</span>
+                    </h1>
+                </div>
+                <div class="movie_info_new" style="margin-bottom: 8px;">
+                    <span class="movie_info_language" style="margin-right: 4px;">
+                        134 mins
+                    </span>
+                    <span class="movie_info_rating">PG</span>
+                </div>
+                <section class="movie_info_more_details">
+                    <p class="movie_info_synopsis movie_info_synopsis_partial">
+                        The story follows a high school student Yuji Itadori as he joins a secret organization
+                        of Jujutsu Sorcerers to eliminate a powerful Curse named Ryomen Sukuna, of whom Yuji becomes the host.
+                    </p>
+                </section>
+            </div>
+        </div>
+        <div class="container-seat">
+            <div class="screen">Screen</div>
+            <div class="seats">
+                <div class="row">
+                    <div class="seat available" data-seat="A1">A1</div>
+                    <div class="seat available" data-seat="A2">A2</div>
+                    <div class="seat available" data-seat="A3">A3</div>
+                    <div class="seat available" data-seat="A4">A4</div>
+                    <div class="seat available" data-seat="A6">A5</div>
+                    <div class="seat available" data-seat="A8">A6</div>
+                </div>
+                <div class="row-seat">
+                   <div class="row">
+                    <div class="seat available" data-seat="B1">B1</div>
+                    <div class="seat available" data-seat="B2">B2</div>
+                    <div class="seat available" data-seat="B3">B3</div>
+                    <div class="seat available" data-seat="B4">B4</div>
+                   
+                   </div>
+                   <div class="row">
+                    <div class="seat available" data-seat="B1">B5</div>
+                    <div class="seat available" data-seat="B2">B6</div>
+                    <div class="seat available" data-seat="B3">B7</div>
+                    <div class="seat available" data-seat="B4">B8</div>
+                    <div class="seat available" data-seat="B7">B9</div>
+                    <div class="seat available" data-seat="B6">B10</div>
+                    <div class="seat available" data-seat="B8">B11</div>
+                   </div>
+                   <div class="row">
+                    <div class="seat available" data-seat="B1">B12</div>
+                    <div class="seat available" data-seat="B2">B13</div>
+                    <div class="seat available" data-seat="B3">B14</div>
+                    <div class="seat available" data-seat="B4">B15</div>
+                   </div>
+                </div>
+                <div class="row-seat">
+                    <div class="row">
+                     <div class="seat available" data-seat="C1">C1</div>
+                     <div class="seat available" data-seat="C2">C2</div>
+                     <div class="seat available" data-seat="C3">C3</div>
+                     <div class="seat available" data-seat="C4">C4</div>
+                    
+                    </div>
+                    <div class="row">
+                     <div class="seat available" data-seat="C5">C5</div>
+                     <div class="seat available" data-seat="C6">C6</div>
+                     <div class="seat available" data-seat="C7">C7</div>
+                     <div class="seat available" data-seat="C8">C8</div>
+                     <div class="seat available" data-seat="C9">C9</div>
+                     <div class="seat available" data-seat="C10">C10</div>
+                     <div class="seat available" data-seat="C11">C11</div>
+                    </div>
+                    <div class="row">
+                     <div class="seat available" data-seat="C12">C12</div>
+                     <div class="seat available" data-seat="C13">C13</div>
+                     <div class="seat reserved " data-seat="C14">C14</div>
+                     <div class="seat available" data-seat="C15">C15</div>
+                    </div>
+                 </div>
+                 <div class="row-seat">
+                    <div class="row">
+                     <div class="seat available" data-seat="D1">D1</div>
+                     <div class="seat available" data-seat="D2">D2</div>
+                     <div class="seat available" data-seat="D3">D3</div>
+                     <div class="seat available" data-seat="D4">D4</div>
+                    
+                    </div>
+                    <div class="row">
+                     <div class="seat available" data-seat="D5">D5</div>
+                     <div class="seat available" data-seat="D6">D6</div>
+                     <div class="seat sold" data-seat="D7">D7</div>
+                     <div class="seat sold" data-seat="D8">D8</div>
+                     <div class="seat sold" data-seat="D9">D9</div>
+                     <div class="seat available" data-seat="D10">D10</div>
+                     <div class="seat available" data-seat="D11">D11</div>
+                    </div>
+                    <div class="row">
+                     <div class="seat available" data-seat="D12">D12</div>
+                     <div class="seat available" data-seat="D13">D13</div>
+                     <div class="seat available" data-seat="D14">D14</div>
+                     <div class="seat available" data-seat="D15">D15</div>
+                    </div>
+                 </div>
+                 <div class="row-seat">
+                    <div class="row">
+                     <div class="seat available" data-seat="E1">E1</div>
+                     <div class="seat available" data-seat="E2">E2</div>
+                     <div class="seat sold" data-seat="E3">E3</div>
+                     <div class="seat available" data-seat="E4">E4</div>
+                    
+                    </div>
+                    <div class="row">
+                     <div class="seat available" data-seat="E5">E5</div>
+                     <div class="seat reserved" data-seat="E6">E6</div>
+                     <div class="seat reserved" data-seat="E7">E7</div>
+                     <div class="seat available" data-seat="E8">E8</div>
+                     <div class="seat available" data-seat="E9">E9</div>
+                     <div class="seat available" data-seat="E10">E10</div>
+                     <div class="seat available" data-seat="E11">E11</div>
+                    </div>
+                    <div class="row">
+                     <div class="seat available" data-seat="E12">E12</div>
+                     <div class="seat available" data-seat="E13">E13</div>
+                     <div class="seat sold" data-seat="E14">E14</div>
+                     <div class="seat available" data-seat="E15">E15</div>
+                    </div>
+                 </div>
+               
+    
+                <!-- Add more rows here -->
+            </div>
+            <div class="legend">
+                <span class="legend-item"><div class="seat-show available"></div> Available</span>
+                <span class="legend-item"><div class="seat reserved"></div> Reserved</span>
+                <span class="legend-item"><div class="seat sold"></div> Sold Out</span>
+                <span class="legend-item"><div class="seat selected"></div> Selected</span>
+            </div>
+            <div class="total">Total: <span id="total-selected">$ 0</span></div>
+            
+            <div>
+                <a href="payment.html">
+                    <button
+                  class="book"
+                  href="payment.html"
+                  data-target="#payment"
+                  data-toggle="modal"
+                >
+                  Book Now
+                </button>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const seats = document.querySelectorAll('.seat.available');
+            const totalSelected = document.getElementById('total-selected');
+            let selectedSeatsCount = document.querySelectorAll('.seat.selected').length;
+        const price = 0;
+            seats.forEach(seat => {
+                seat.addEventListener('click', () => {
+                    seat.classList.toggle('selected');
+                    updateSelectedCount();
+                });
+            });
+
+            function updateSelectedCount() {
+                selectedSeatsCount = document.querySelectorAll('.seat.selected').length;
+                const total = (selectedSeatsCount-1) * 200;
+                totalSelected.textContent = "$ "+ total;
+            }
+        });
+    </script>
+
+
+</body>
+</html>
